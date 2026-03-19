@@ -1,2 +1,3 @@
-def hello() -> str:
-    return "Hello from panmetis!"
+"""panmetis — A curated collection of agent skills for AI coding assistants."""
+
+__version__ = "0.1.0"

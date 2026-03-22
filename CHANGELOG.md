@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.2] - 2026-03-22
+
+### Added
+
+- Add matplotlib and plotly skills.
+- Add `.github/copilot-instructions.md` with project guidelines.
+
 ## [0.1.1] - 2026-03-19
 
 ### Added

@@ -36,10 +36,20 @@
       "sourceType": "github",
       "computedHash": "2607fc60629b82b257136dd2a7a373f0a4466c0b49df7746d845d59313c99b21"
     },
+    "matplotlib": {
+      "source": "davila7/claude-code-templates",
+      "sourceType": "github",
+      "computedHash": "5049b58b88810aa7f59713564ccf612b6c17db82ddfd709ccd0b1799a6698fe6"
+    },
     "pdf": {
       "source": "anthropics/skills",
       "sourceType": "github",
       "computedHash": "cfbc539377088ca7e44a813b30c306327385bbd973cd7a721e1743f60837dd62"
+    },
+    "plotly": {
+      "source": "davila7/claude-code-templates",
+      "sourceType": "github",
+      "computedHash": "c1659137bafbc9e5667a6a34b9de795ee5e33b9b5e014e6cbe7372bd2caa9945"
     },
     "pptx": {
       "source": "anthropics/skills",

@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.3] - 2026-03-29
+
+### Added
+
+- Add VS Code Copilot tool mapping reference.
+- Add update-skills prompt for refreshing bundled skills.
+- Add publish prompt for automated PyPI releases.
+
+### Changed
+
+- Update bundled skills to latest upstream versions.
+
+### Fixed
+
+- Preserve copilot-tools.md across skill updates.
+
 ## [0.1.2] - 2026-03-22
 
 ### Added

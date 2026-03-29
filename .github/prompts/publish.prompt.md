@@ -1,11 +1,11 @@
 ---
-name: publisher
 description: "Publish a new version of panmetis to PyPI. Use when: ready to release, bump version, publish package, cut a release, or tag a new version."
 argument-hint: "semver bump type: patch, minor, or major"
-tools: ['execute', 'read', 'edit', 'search', 'todo']
+agent: "agent"
+tools: ["execute", "read", "edit", "search", "todo"]
 ---
 
-# Publisher Agent
+# Publisher
 
 Release panmetis to PyPI following the established workflow. The user provides the semver bump type (patch, minor, or major). Default to **patch** if not specified.
 

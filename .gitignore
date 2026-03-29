@@ -23,3 +23,10 @@ Thumbs.db
 htmlcov/
 .pytest_cache/
 .mypy_cache/
+
+# Skills
+.agents/
+skills-lock.json
+
+# Logs
+logs/

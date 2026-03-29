@@ -13,12 +13,19 @@ Skills use Claude Code tool names. When you encounter these in a skill, use your
 | `TodoWrite` (task tracking) | `manage_todo_list` |
 | `Skill` tool (invoke a skill) | `read_file` on the skill's SKILL.md path (see below) |
 | `WebSearch` | No built-in equivalent (MCP servers can provide this) |
-| `WebFetch` | No built-in equivalent (MCP servers can provide this) |
-| `Task` tool (dispatch subagent) | No equivalent — VS Code Copilot does not support subagents |
+| `WebFetch` | `fetch_webpage` (`#web/fetch`) |
+| `Task` tool (dispatch subagent) | `runSubagent` (`#agent/runSubagent`) |
 
-## No subagent support
+## Subagent support
 
-VS Code Copilot has no equivalent to Claude Code's `Task` tool. Skills that rely on subagent dispatch (`subagent-driven-development`, `dispatching-parallel-agents`) will fall back to single-session execution via `executing-plans`.
+VS Code Copilot supports subagents via `runSubagent` (`#agent/runSubagent`). A subagent is an independent AI agent that performs focused work in an isolated context and reports results back to the main agent. Key capabilities:
+
+- **Context isolation**: subagents get a clean context window, keeping the main agent's context uncluttered.
+- **Parallel execution**: multiple subagents can run in parallel for independent subtasks.
+- **Custom agents as subagents**: custom agents (defined in `.agent.md` files) can be invoked as subagents with their own model, tools, and instructions.
+- **Nested subagents**: disabled by default; enable via `chat.subagents.allowInvocationsFromSubagents` setting (max depth 5).
+
+Skills that rely on subagent dispatch (`subagent-driven-development`, `dispatching-parallel-agents`) work natively in VS Code Copilot.
 
 ## Skill invocation
 
@@ -38,11 +45,19 @@ Some tools are not loaded until discovered via `tool_search_tool_regex`. These i
 
 | Tool | Purpose |
 |------|---------|
-| `vscode_listCodeUsages` | Find references and usages of symbols |
-| `get_changed_files` | List files modified in the workspace |
-| `test_failure` | Get details of test failures |
+| `vscode_listCodeUsages` | Find references, implementations, and definitions of symbols |
+| `vscode_renameSymbol` | Rename a symbol across the codebase |
+| `get_changed_files` | List source control changes in the workspace |
+| `test_failure` | Get unit test failure information |
 | `create_and_run_task` | Create and run VS Code tasks (build, run, custom) |
 | `kill_terminal` | Kill a running terminal |
+| `get_terminal_output` | Get output from a background terminal process |
+| `get_search_view_results` | Get results from the Search view |
+| `get_vscode_api` | Ask about VS Code APIs and extension development |
+| `install_extension` | Install a VS Code extension |
+| `run_vscode_command` | Run a VS Code command |
+| `terminal_last_command` | Get the last run terminal command and its output |
+| `terminal_selection` | Get the current terminal selection |
 
 Before calling a deferred tool, search for it first with `tool_search_tool_regex` to load it.
 
@@ -52,12 +67,14 @@ These tools are available in VS Code Copilot but have no direct Claude Code equi
 
 | Tool | Purpose |
 |------|---------|
-| `semantic_search` | Natural language search across the codebase |
-| `get_errors` | Get compile/lint diagnostics from VS Code |
+| `semantic_search` (`#search/codebase`) | Natural language search across the codebase |
+| `get_errors` (`#read/problems`) | Get compile/lint diagnostics from VS Code |
 | `view_image` | View image files (png, jpg, gif, webp) |
-| `list_dir` | List directory contents |
-| `get_terminal_output` | Check output of background terminal processes |
+| `list_dir` (`#search/listDirectory`) | List directory contents |
+| `fetch_webpage` (`#web/fetch`) | Fetch content from a web page |
+| `runSubagent` (`#agent/runSubagent`) | Run a task in an isolated subagent context |
 | `tool_search_tool_regex` | Discover deferred and MCP-provided tools at runtime |
+| `memory` | Persistent memory system for storing notes across conversations |
 
 ## MCP server extensions
 

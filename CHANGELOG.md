@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.4] - 2026-05-14
+
+### Added
+
+- Add 9 new skills from upstream sources.
+
+### Changed
+
+- Update bundled skills to latest upstream versions.
+- Simplify update-skills prompt now that copilot-tools.md is upstream.
+- Update project guidelines with skill count, symlink, and update workflow.
+
 ## [0.1.3] - 2026-03-29
 
 ### Added

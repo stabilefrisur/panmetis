@@ -18,10 +18,12 @@ uv publish       # publish to PyPI
 src/panmetis/
   __init__.py       # version string only
   py.typed          # PEP 561 marker
-  skills/           # 21 bundled agent skills (the core content)
+  skills/           # 33 bundled agent skills (the core content)
 ```
 
-Skills live inside the Python package at `src/panmetis/skills/`. They were originally sourced from `obra/superpowers` and `anthropics/skills` (tracked in `skills-lock.json`).
+Skills live inside the Python package at `src/panmetis/skills/`. They are sourced from multiple upstream repos (`obra/superpowers`, `anthropics/skills`, and others) tracked in `skills-lock.json`.
+
+`.agents/skills/` is a symlink to `src/panmetis/skills/`, so `npx skills` commands write directly into the package source.
 
 ## Build System
 
@@ -41,6 +43,10 @@ Version is defined in **two places** — both must be updated together:
 3. `rm -rf dist/ && uv build`
 4. Commit, tag (`git tag -a vX.Y.Z -m "Release vX.Y.Z"`), push with tags
 5. `uv publish`
+
+## Updating Skills
+
+Use the `update-skills` prompt (`.github/prompts/update-skills.prompt.md`) to refresh bundled skills from upstream. Run it via the Copilot agent mode or follow its steps manually.
 
 ## Conventions
 

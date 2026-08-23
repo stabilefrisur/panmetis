@@ -14,11 +14,16 @@ Update the bundled skills in `src/panmetis/skills/` from upstream using the skil
 
 ### 1. Update upstream skills
 
+The CLI detects installed agent runtimes from the home directory. When Claude Code is installed, its non-interactive update path also creates `.claude/skills/` symlinks. Keep this project Universal-only by using an isolated temporary home with a Universal-compatible agent marker:
+
 ```bash
-npx skills update --project --yes
+tmp_home=$(mktemp -d)
+trap 'rm -rf "$tmp_home"' EXIT
+mkdir -p "$tmp_home/.copilot"
+HOME="$tmp_home" XDG_CONFIG_HOME="$tmp_home/.config" npx --yes skills update --project --yes
 ```
 
-This updates `src/panmetis/skills/` directly (via the symlink) and `skills-lock.json`.
+This updates `src/panmetis/skills/` directly (via the symlink) and `skills-lock.json`, without creating agent-specific project directories such as `.claude/`.
 
 ### 2. Commit
 

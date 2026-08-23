@@ -28,7 +28,7 @@ This updates `src/panmetis/skills/` directly (via the symlink) and `skills-lock.
 ### 2. Commit
 
 ```bash
-git add src/panmetis/skills/
+git add skills-lock.json src/panmetis/skills/
 git commit -m "chore: update bundled skills"
 ```
 

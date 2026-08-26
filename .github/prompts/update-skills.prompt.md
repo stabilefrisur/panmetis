@@ -47,9 +47,10 @@ Build the package and inspect the resulting sdist and wheel:
 
 ```bash
 uv build --clear
+./scripts/verify-distributions.sh
 ```
 
-This stage is complete when every upstream change is understood, only expected tracked paths changed, and both distributions contain the updated bundled skills.
+This stage is complete when every upstream change is understood, only expected tracked paths changed, and the distribution verifier confirms both artifacts contain the updated bundled skills exactly once.
 
 ## 4. Commit and report
 

@@ -18,7 +18,7 @@ python -m pip install panmetis
 
 Each directory under [`src/panmetis/skills/`](src/panmetis/skills/) contains a `SKILL.md` and may contain references, scripts, templates, or agent metadata. In a source checkout, `.agents/skills` points to that directory for runtimes that discover Universal skills there.
 
-The current build configuration omits the skills tree from the sdist and wheel, so installing the Python package does not yet install the skills. Use a source checkout until archive inclusion is fixed and verified.
+The published sdist and wheel include the complete skills tree.
 
 The selected skills and their upstream sources are recorded in [`skills-lock.json`](skills-lock.json).
 

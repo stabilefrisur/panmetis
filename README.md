@@ -1,51 +1,42 @@
 # panmetis
 
-A curated collection of agent skills for AI coding assistants.
+Panmetis is a curated, upstream-tracked collection of agent skills intended for Python distribution.
 
-## Installation
+## Install
 
 ```bash
 uv add panmetis
 ```
 
-Or with pip:
+Or install it into an existing Python environment:
 
 ```bash
-pip install panmetis
+python -m pip install panmetis
 ```
 
-## Usage
+## Access the skills
 
-```python
-import panmetis
-```
+Each directory under [`src/panmetis/skills/`](src/panmetis/skills/) contains a `SKILL.md` and may contain references, scripts, templates, or agent metadata. In a source checkout, `.agents/skills` points to that directory for runtimes that discover Universal skills there.
 
-## Development
+The current build configuration omits the skills tree from the sdist and wheel, so installing the Python package does not yet install the skills. Use a source checkout until archive inclusion is fixed and verified.
 
-Clone the repository and sync dependencies:
+The selected skills and their upstream sources are recorded in [`skills-lock.json`](skills-lock.json).
+
+## Develop
 
 ```bash
 git clone https://github.com/stabilefrisur/panmetis.git
 cd panmetis
 uv sync
+uv build --clear
 ```
 
-Build:
+The build must produce an sdist and wheel containing the bundled skills.
 
-```bash
-uv build
-```
+## Maintain
 
-## Updating Skills
-
-Skills are managed via the [`skills`](https://www.npmjs.com/package/skills) CLI. The `.agents/skills/` directory is symlinked to `src/panmetis/skills/`, so updates write directly into the package source. The temporary home prevents the CLI from also creating links for installed agent runtimes such as Claude Code.
-
-```bash
-tmp_home=$(mktemp -d)
-trap 'rm -rf "$tmp_home"' EXIT
-mkdir -p "$tmp_home/.copilot"
-HOME="$tmp_home" XDG_CONFIG_HOME="$tmp_home/.config" npx --yes skills update --project --yes
-```
+- Sync upstream skills with the [update-skills prompt](.github/prompts/update-skills.prompt.md). It owns the isolated updater, review, and verification sequence.
+- Publish a version with the [release prompt](.github/prompts/publish.prompt.md). It owns version alignment, changelog, build, tag, push, and PyPI completion criteria.
 
 ## License
 

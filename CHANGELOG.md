@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.1.6] - 2026-08-26
+
+### Added
+
+- Add 22 Matt Pocock skills for code review, codebase design, debugging, domain modeling, planning, implementation, research, testing, teaching, triage, and agent workflows.
+
+### Changed
+
+- Standardize the 25-skill bundle and its lockfile on `mattpocock/skills`, including refreshed versions of `grill-me`, `grill-with-docs`, and `improve-codebase-architecture`.
+- Strengthen the README, project instructions, release workflow, and skill-sync workflow with explicit sources of truth, isolated updates, artifact inspection, and completion criteria.
+- Synchronize the dependency lockfile with the package version.
+
+### Removed
+
+- Remove 30 superseded skills from the previous mixed-source catalog, including document and presentation tooling, visualization and design helpers, and the former Superpowers workflow suite.
+
+### Fixed
+
+- Include skill bundles containing only non-Python files in both the sdist and wheel.
+
 ## [0.1.5] - 2026-08-23
 
 ### Changed
